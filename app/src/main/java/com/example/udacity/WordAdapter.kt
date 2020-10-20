@@ -32,7 +32,7 @@ class WordAdapter(context: Activity, words: ArrayList<Word>, color: Int) : Array
             if (currentWord.hasImage()) listItemView.image.setImageResource(currentWord.mResourceImageId)
             else listItemView.image.visibility = View.GONE
         }
-        listItemView.findViewById<TextView>(R.id.rus_text_view).text = currentWord?.mRusTranslation
+        listItemView.findViewById<TextView>(R.id.rus_text_view).text = currentWord?.mTranslation
 
         val textContainer = listItemView.findViewById<View>(R.id.text_container)
 
