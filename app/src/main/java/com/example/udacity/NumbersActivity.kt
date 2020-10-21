@@ -4,7 +4,9 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.word_list.*
+import java.lang.Exception
 
 class NumbersActivity : AppCompatActivity() {
 
@@ -33,7 +35,12 @@ class NumbersActivity : AppCompatActivity() {
 
         list.setOnItemClickListener { _, _, position, _ ->
             mMediaPlayer = MediaPlayer.create(this, words[position].audioResourceID)
-            mMediaPlayer.start()
+            mMediaPlayer.apply {
+                mMediaPlayer.setOnCompletionListener {
+                    Toast.makeText(this@NumbersActivity, "I'm done", Toast.LENGTH_SHORT).show()
+                    mMediaPlayer.release()
+                }
+                start() }
         }
 
         // Пример использования обычного ListView и цикла для заполнения
