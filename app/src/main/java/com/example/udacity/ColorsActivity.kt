@@ -4,11 +4,17 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.word_list.*
 
 class ColorsActivity : AppCompatActivity() {
 
-    private lateinit var mMediaPlayer: MediaPlayer
+    private var mMediaPlayer: MediaPlayer? = null
+
+    private val mCompletionListener = MediaPlayer.OnCompletionListener {
+        Toast.makeText(this@ColorsActivity, "I'm done", Toast.LENGTH_SHORT).show()
+        releaseMediaPlayer()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +31,22 @@ class ColorsActivity : AppCompatActivity() {
 
         list.setOnItemClickListener { _, _, position, _ ->
             mMediaPlayer = MediaPlayer.create(this, words[position].audioResourceID)
-            mMediaPlayer.start()
+            mMediaPlayer.apply {
+                mMediaPlayer?.setOnCompletionListener(mCompletionListener)
+                this?.start() }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        releaseMediaPlayer()
+    }
+
+    private fun releaseMediaPlayer() { // If the media player is not null, then it may be currently playing a sound.
+        mMediaPlayer?.release()
+        // Set the media player back to null. For our code, we've decided that
+        // setting the media player to null is an easy way to tell that the media player
+        // is not configured to play an audio file at the moment.
+        mMediaPlayer = null
     }
 }
