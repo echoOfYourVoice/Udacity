@@ -41,7 +41,7 @@ class NumbersActivity : AppCompatActivity() {
 
         mAudioManager = getSystemService(AUDIO_SERVICE) as AudioManager
 
-        val words = arrayListOf(Word("one", "один", R.drawable.number_one, R.raw.inner_peace),  Word("two", "два", R.drawable.number_two, R.raw.number_two),
+        val words = arrayListOf(Word("one", "один", R.drawable.number_one, R.raw.number_one),  Word("two", "два", R.drawable.number_two, R.raw.number_two),
             Word("three", "три", R.drawable.number_three, R.raw.number_three), Word("four", "четыре", R.drawable.number_four, R.raw.number_four),
             Word("five", "пять", R.drawable.number_five, R.raw.number_five), Word("six", "шесть", R.drawable.number_six, R.raw.number_six),
             Word("seven", "семь", R.drawable.number_seven, R.raw.number_seven), Word("eight", "восемь", R.drawable.number_eight, R.raw.number_eight),
