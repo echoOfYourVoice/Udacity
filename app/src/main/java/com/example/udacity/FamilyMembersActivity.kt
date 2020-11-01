@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.word_list.*
 
 class FamilyMembersActivity : AppCompatActivity() {
 
+    /*
     private var mMediaPlayer: MediaPlayer? = null
 
     private val mCompletionListener = MediaPlayer.OnCompletionListener {
@@ -16,10 +17,13 @@ class FamilyMembersActivity : AppCompatActivity() {
         releaseMediaPlayer()
     }
 
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.word_list)
+        setContentView(R.layout.activity_category)
+        supportFragmentManager.beginTransaction().replace(R.id.container, NumbersFragment()).commit()
 
+        /*
         val words = arrayListOf<Word>(Word("father", "папа", R.drawable.family_father, R.raw.family_father), Word("mother", "мама", R.drawable.family_mother, R.raw.family_mother),
             Word("son", "сын", R.drawable.family_son, R.raw.family_son), Word("daughter", "дочь", R.drawable.family_daughter, R.raw.family_daughter),
             Word("older brother", "старший брат", R.drawable.family_older_brother, R.raw.family_older_brother), Word("younger brother", "младший брат", R.drawable.family_younger_brother, R.raw.family_younger_brother),
@@ -36,8 +40,10 @@ class FamilyMembersActivity : AppCompatActivity() {
                 mMediaPlayer?.setOnCompletionListener(mCompletionListener)
                 this?.start() }
         }
+         */
     }
 
+    /*
     override fun onStop() {
         super.onStop()
         releaseMediaPlayer()
@@ -50,4 +56,6 @@ class FamilyMembersActivity : AppCompatActivity() {
         // is not configured to play an audio file at the moment.
         mMediaPlayer = null
     }
+
+     */
 }

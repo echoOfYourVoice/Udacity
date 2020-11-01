@@ -9,17 +9,20 @@ import kotlinx.android.synthetic.main.word_list.*
 
 class ColorsActivity : AppCompatActivity() {
 
+    /*
     private var mMediaPlayer: MediaPlayer? = null
 
     private val mCompletionListener = MediaPlayer.OnCompletionListener {
         Toast.makeText(this@ColorsActivity, "I'm done", Toast.LENGTH_SHORT).show()
         releaseMediaPlayer()
     }
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.word_list)
-
+        setContentView(R.layout.activity_category)
+        supportFragmentManager.beginTransaction().replace(R.id.container, ColorsFragment()).commit()
+        /*
         val words = arrayListOf<Word>(Word("red", "красный", R.drawable.color_red, R.raw.color_red), Word("green", "зеленый", R.drawable.color_green, R.raw.color_green),
             Word("brown", "коричневый", R.drawable.color_brown, R.raw.color_brown), Word("gray", "серый", R.drawable.color_gray, R.raw.color_gray),
             Word("black", "черный", R.drawable.color_black, R.raw.color_black), Word("white", "белый", R.drawable.color_white, R.raw.color_white),
@@ -35,8 +38,10 @@ class ColorsActivity : AppCompatActivity() {
                 mMediaPlayer?.setOnCompletionListener(mCompletionListener)
                 this?.start() }
         }
+         */
     }
 
+    /*
     override fun onStop() {
         super.onStop()
         releaseMediaPlayer()
@@ -49,4 +54,5 @@ class ColorsActivity : AppCompatActivity() {
         // is not configured to play an audio file at the moment.
         mMediaPlayer = null
     }
+     */
 }

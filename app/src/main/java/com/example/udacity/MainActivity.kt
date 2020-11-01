@@ -4,13 +4,17 @@ package com.example.udacity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.SimpleAdapter
 import android.widget.TextView
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main1)
         /*
         Для этого нужно создавать отдельный класс
 
@@ -21,8 +25,17 @@ class MainActivity : AppCompatActivity() {
         numbers.setOnClickListener(clickListener)
          */
 
-        // NUMBERS
 
+        val viewPager = findViewById<ViewPager>(R.id.viewpager)
+        val adapter = SimpleFragmentPagerAdapter(supportFragmentManager)
+
+        viewPager.adapter = adapter
+
+        val tabLayout = findViewById<TabLayout>(R.id.sliding_tabs)
+        tabLayout.setupWithViewPager(viewPager)
+
+        // NUMBERS
+        /*
         findViewById<TextView>(R.id.numbers).setOnClickListener {
             val i = Intent(this, NumbersActivity::class.java)
             startActivity(i)
@@ -47,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    */
 
 /*
     Для этой реализации необходимо устанавливать действие в activity_main.xml
@@ -65,4 +79,5 @@ class MainActivity : AppCompatActivity() {
     }
  */
 
+    }
 }
